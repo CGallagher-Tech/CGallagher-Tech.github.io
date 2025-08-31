@@ -3,35 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cameron Gallagher | Portfolio</title>
+  <title>Cameron Gallagher · Portfolio</title>
+  <!-- Link to shared CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Hi, I’m Cameron Gallagher 👋</h1>
-    <p>Computer Science student at UON | Future AI Software Developer</p>
-  </header>
+  <!-- Navigation bar -->
+  <nav>
+    <a class="logo" href="index.html">CG</a>
+    <div class="links">
+      <!-- Internal links to other pages -->
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
+  <!-- Main content area -->
   <main>
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>📱 Android Weight Loss Tracker App</li>
-        <li>📊 UNIOSE Library Database Design (COMP1140)</li>
-        <li>💻 Java Project Management System</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>About Me</h2>
-      <p>I love coding, AI, game dev, UFC, and dinosaurs 🦖. I’m building my skills in Java, databases, and web tech.</p>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/CGallagher-Tech">CGallagher-Tech</a></p>
+    <section class="hero section">
+        <h1>Hi, I'm <span style="color:var(--accent)">Cameron Gallagher</span></h1>
+        <p class="muted">Short placeholder sentence about what you do.</p>
+        <div style="margin-top:14px; display:flex; gap:10px; justify-content:center;">
+            <a class="btn" href="projects.html">See Projects</a>
+            <a class="btn ghost" href="contact.html">Contact</a>
+        </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Cameron Gallagher</p>
+  </footer>
 </body>
 </html>
