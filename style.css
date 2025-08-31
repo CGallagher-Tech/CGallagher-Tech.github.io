@@ -178,3 +178,7 @@ footer{
   nav .links a{ margin-left: 14px; }
   .hero{ text-align:left; }
 }
+
+p + p {
+  margin-top: 1rem;
+}
