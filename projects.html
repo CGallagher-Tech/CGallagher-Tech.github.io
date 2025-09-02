@@ -65,32 +65,58 @@
   </footer>
 
 <script>
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 0;
+let autoSlideInterval;
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
+function showSlides() {
   let i;
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  const slides = document.getElementsByClassName("slide");
+  const dots = document.getElementsByClassName("dot");
+
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
+
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+// Next/Prev controls
+function plusSlides(n) {
+  slideIndex += n - 1; // adjust because showSlides increments
+  showSlides();
+}
+
+// Manual dot controls
+function currentSlide(n) {
+  slideIndex = n - 1;
+  showSlides();
+}
+
+// Auto-play setup
+function startAutoPlay() {
+  autoSlideInterval = setInterval(showSlides, 4000); // change every 4s
+}
+function stopAutoPlay() {
+  clearInterval(autoSlideInterval);
+}
+
+// Start on load
+document.addEventListener("DOMContentLoaded", () => {
+  showSlides();
+  startAutoPlay();
+
+  // Pause on hover
+  const container = document.querySelector(".slideshow-container");
+  container.addEventListener("mouseenter", stopAutoPlay);
+  container.addEventListener("mouseleave", startAutoPlay);
+});
 </script>
 
 </body>

@@ -225,7 +225,8 @@ nav, main, footer { position: relative; z-index: 1; }
 
 .slideshow-container {
   position: relative;
-  max-width: 700px;
+  max-width: 800px;   /* limit how wide it can get */
+  width: 100%;        /* but let it shrink on small screens */
   margin: 20px auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -237,9 +238,11 @@ nav, main, footer { position: relative; z-index: 1; }
 }
 
 .slide img {
-  width: 100%;
-  max-height: 400px;   /* limit height */
-  object-fit: contain; /* scale down without cropping */
+  display: block;
+  width: 100%;          /* fills the slideshow width */
+  height: auto;         /* keeps proportions */
+  max-height: 70vh;     /* never taller than 70% of viewport height */
+  object-fit: contain;  /* scales nicely without cropping */
   border-radius: var(--radius);
 }
 
@@ -294,4 +297,13 @@ nav, main, footer { position: relative; z-index: 1; }
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+@media (max-width: 520px) {
+  .slideshow-container {
+    max-width: 100%; /* full width on very small screens */
+  }
+  .slide img {
+    max-height: 50vh; /* smaller so it doesn’t dominate the screen */
+  }
 }
