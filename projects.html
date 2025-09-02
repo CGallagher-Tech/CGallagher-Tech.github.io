@@ -18,16 +18,80 @@
 
   <main>
     <h1>Projects</h1>
-    <!-- Example placeholder list of projects -->
-    <ul>
-      <li>Project One - [placeholder description]</li>
-      <li>Project Two - [placeholder description]</li>
-      <li>Project Three - [placeholder description]</li>
-    </ul>
-  </main>
+    <section class="project">
+    <h2>Assignment Website</h2>
+    <p>A website I created for a university assignment. Click through the screenshots:</p>
+
+    <div class="slideshow-container">
+
+      <div class="slide fade">
+        <img src="images/seng1050.1.png" alt="Screenshot 1">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/seng1050.2.png" alt="Screenshot 2">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/seng1050.3.png" alt="Screenshot 3">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/seng1050.4.png" alt="Screenshot 4">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/seng1050.5.png" alt="Screenshot 5">
+      </div>
+
+      <!-- Arrows -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+  </section>
+</main>
 
   <footer>
-    <p>© 2025 Placeholder Name</p>
+    <p>© 2025 Cameron Gallagher</p>
   </footer>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
 </body>
 </html>
