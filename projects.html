@@ -11,20 +11,21 @@
     }
   } catch {}
 </script>
-<link rel="stylesheet" href="style.css?v=2">
 
-  <link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <nav>
   <a class="logo" href="index.html">CG</a>
   <div class="links">
-    <a href="projects.html">Projects</a>
+    <a href="projects.html" class="active">Projects</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <button id="theme-toggle" class="btn ghost small">🌗</button>
   </div>
 </nav>
+
+
 
   <main>
     <h1>Projects</h1>
@@ -75,41 +76,38 @@
   </footer>
 
 <script>
-let slideIndex = 0;
-let autoSlideInterval;
+let slideIndex = 1;
 
-function showSlides() {
-  let i;
+function showSlide(n) {
   const slides = document.getElementsByClassName("slide");
-  const dots = document.getElementsByClassName("dot");
+  const dots   = document.getElementsByClassName("dot");
 
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+  if (slides.length === 0) return;
+
+  if (n > slides.length) slideIndex = 1;
+  if (n < 1) slideIndex = slides.length;
+
+  // hide all
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+  // deactivate dots
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
   }
-
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  // show current
+  slides[slideIndex - 1].style.display = "block";
+  if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add("active");
 }
 
-// Next/Prev controls
-function plusSlides(n) {
-  slideIndex += n - 1; // adjust because showSlides increments
-  showSlides();
-}
+function plusSlides(n) { showSlide(slideIndex += n); }
+function currentSlide(n) { showSlide(slideIndex = n); }
 
-// Manual dot controls
-function currentSlide(n) {
-  slideIndex = n - 1;
-  showSlides();
-}
-
+document.addEventListener("DOMContentLoaded", () => {
+  showSlide(slideIndex); // show first slide immediately
+});
 </script>
+
 <script src="theme-toggle.js"></script>
 </body>
 </html>
