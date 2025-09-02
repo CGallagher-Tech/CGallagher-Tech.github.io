@@ -95,7 +95,8 @@ p{ color: var(--text); }
    Use this on your home page to introduce yourself.
 ------------------------------------------------ */
 .hero{
-  background: linear-gradient(180deg, rgba(138,246,177,.08), rgba(138,246,177,.02));
+  background: rgba(17, 19, 18, 0.7);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 36px 28px;
