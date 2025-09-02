@@ -182,3 +182,15 @@ footer{
 p + p {
   margin-top: 1rem;
 }
+
+/* Background video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures video fills screen */
+  z-index: -1;       /* pushes it behind all content */
+  filter: brightness(0.3); /* optional: darkens video for readability */
+}
