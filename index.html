@@ -9,11 +9,10 @@
 </head>
 <body>
 
-  <!-- Background video -->
-   <video autoplay muted loop playsinline class="bg-video">
-    <source src="videos/matrix.vid.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-   </video>
+  
+  <!-- Matrix overlay -->
+  <canvas id="matrix-canvas" class="matrix-canvas" aria-hidden="true"></canvas>
+
 
   <!-- Navigation bar -->
   <nav>
@@ -42,5 +41,63 @@
   <footer>
     <p>© 2025 Cameron Gallagher</p>
   </footer>
+
+<script>
+(() => {
+  const canvas = document.getElementById('matrix-canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Fit canvas to window
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initColumns();
+  }
+  window.addEventListener('resize', resize);
+
+  // Characters to rain
+  const glyphs = 'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const chars = glyphs.split('');
+
+  // Columns setup
+  let fontSize = 16;     // tweak for density
+  let columns = [];
+  function initColumns() {
+    fontSize = Math.max(12, Math.floor(window.innerWidth / 90)); // auto-density
+    const cols = Math.ceil(canvas.width / fontSize);
+    columns = new Array(cols).fill(0).map(() => Math.floor(Math.random() * canvas.height / fontSize));
+  }
+
+  // Draw loop
+  function draw() {
+    // translucent fill to create trailing effect
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#8af6b1';  // your accent green
+    ctx.font = `${fontSize}px monospace`;
+
+    columns.forEach((y, i) => {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      const x = i * fontSize;
+      ctx.fillText(text, x, y * fontSize);
+
+      // reset occasionally to vary lengths
+      if (y * fontSize > canvas.height && Math.random() > 0.975) {
+        columns[i] = 0;
+      } else {
+        columns[i] = y + 1;
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+})();
+</script>
+
+
 </body>
 </html>
