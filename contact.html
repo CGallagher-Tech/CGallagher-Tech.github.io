@@ -4,17 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact · Portfolio</title>
+  <script>
+  try {
+    if (localStorage.getItem("theme") === "cyber") {
+      document.documentElement.classList.add("cyber");
+    }
+  } catch {}
+</script>
+<link rel="stylesheet" href="style.css?v=2">
+
   <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <nav>
-    <a class="logo" href="index.html">CG</a>
-    <div class="links">
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-  </nav>
+  <a class="logo" href="index.html">CG</a>
+  <div class="links">
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button id="theme-toggle" class="btn ghost small">🌗</button>
+  </div>
+</nav>
 
   <main>
     <h1>Contact</h1>
@@ -26,5 +36,6 @@
   <footer>
     <p>© 2025 Cameron Gallagher</p>
   </footer>
+<script src="theme-toggle.js"></script>
 </body>
 </html>
