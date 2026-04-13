@@ -3,103 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cameron Gallagher · Portfolio</title>
+  <title>Cameron Gallagher</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
   <nav>
-    <a class="logo" href="index.html"><span>CG</span> Cameron Gallagher</a>
-    <div class="links">
-      <a href="projects.html">Projects</a>
+    <a class="nav-logo" href="index.html">Cameron Gallagher<sup>dev</sup></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <button id="theme-toggle" class="btn ghost">🌙</button>
     </div>
   </nav>
-
+ 
   <main>
-
+ 
     <!-- Hero -->
     <section class="hero">
-      <div>
-        <div class="hero-badge">Open to opportunities</div>
-        <h1>
-          Hi, I'm
-          <span class="name">Cameron Gallagher</span>
-        </h1>
-        <p class="hero-sub">
-          Computer Science student at the University of Newcastle — building practical software
-          at the intersection of AI, clean design, and strong engineering.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="projects.html">View Projects</a>
-          <a class="btn ghost" href="contact.html">Get in Touch</a>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>CS Student &amp; Aspiring AI Developer</span>
+      </div>
+ 
+      <h1 class="hero-title">
+        <span class="small">Hi, I'm</span>
+        <span class="big">Cameron</span>
+        <span class="italic">Gallagher.</span>
+      </h1>
+ 
+      <p class="hero-desc">
+        Building software at the intersection of artificial intelligence,
+        clean engineering, and design. Based in Newcastle, Australia.
+        Open to internships and graduate roles.
+      </p>
+ 
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="about.html">About Me</a>
+        <a class="btn btn-outline" href="contact.html">Get in Touch</a>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+ 
+      <div class="hero-ghost-num">CG</div>
+    </section>
+ 
+    <!-- Skills -->
+    <section class="skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">01</span>
+          <h2>What I Do</h2>
+        </div>
+ 
+        <div class="skills-row">
+ 
+          <div class="skill-item">
+            <div class="skill-num">01</div>
+            <h3>Artificial Intelligence</h3>
+            <p>Designing and modelling AI systems — from concept through to working implementation.</p>
+            <div class="skill-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+              <span class="tag">Research</span>
+            </div>
+          </div>
+ 
+          <div class="skill-item">
+            <div class="skill-num">02</div>
+            <h3>Web Development</h3>
+            <p>Building accessible, performant web experiences with modern HTML, CSS, and JavaScript.</p>
+            <div class="skill-tags">
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </div>
+ 
+          <div class="skill-item">
+            <div class="skill-num">03</div>
+            <h3>Mobile &amp; Software</h3>
+            <p>Creating mobile applications and software tools that solve real-world problems.</p>
+            <div class="skill-tags">
+              <span class="tag">Java</span>
+              <span class="tag">App Dev</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+ 
+          <div class="skill-item">
+            <div class="skill-num">04</div>
+            <h3>Game Development</h3>
+            <p>Experimenting with game engines and interactive experiences as a creative outlet.</p>
+            <div class="skill-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Game Design</span>
+            </div>
+          </div>
+ 
         </div>
       </div>
-      <div class="hero-avatar">CG</div>
     </section>
-
-    <!-- Skills snapshot -->
-    <section class="section">
-      <p class="section-label">What I work with</p>
-      <h2>Skills &amp; Interests</h2>
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-icon">🤖</div>
-          <h3>Artificial Intelligence</h3>
-          <p>Designing and modelling AI systems — from concept through to implementation.</p>
-          <div class="skill-tags">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Python</span>
-            <span class="tag">Research</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">🌐</div>
-          <h3>Web Development</h3>
-          <p>Building clean, accessible web experiences with modern HTML, CSS, and JavaScript.</p>
-          <div class="skill-tags">
-            <span class="tag">HTML &amp; CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Responsive Design</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">📱</div>
-          <h3>Mobile &amp; Software</h3>
-          <p>Creating mobile applications and software tools that solve real problems.</p>
-          <div class="skill-tags">
-            <span class="tag">App Development</span>
-            <span class="tag">Java</span>
-            <span class="tag">Problem Solving</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">🎮</div>
-          <h3>Game Development</h3>
-          <p>Experimenting with game engines and interactive experiences as a creative outlet.</p>
-          <div class="skill-tags">
-            <span class="tag">Game Design</span>
-            <span class="tag">C#</span>
-            <span class="tag">Unity</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+ 
   </main>
-
+ 
   <footer>
     <span>© 2025 Cameron Gallagher</span>
-    <span>Built with HTML &amp; CSS · <a href="https://github.com/CGallagher-Tech" target="_blank">GitHub</a></span>
+    <span>
+      <a href="https://github.com/CGallagher-Tech" target="_blank">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:CGallagher.tech@gmail.com">Email</a>
+    </span>
   </footer>
-
-  <script src="theme-toggle.js"></script>
+ 
 </body>
 </html>
