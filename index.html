@@ -4,124 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cameron Gallagher · Portfolio</title>
-
-  <!-- Apply saved theme before CSS loads (prevents green flash) -->
-  <script>
-    try {
-      if (localStorage.getItem("theme") === "cyber") {
-        document.documentElement.classList.add("cyber");
-      }
-    } catch {}
-  </script>
-
-  <!-- Link to shared CSS file -->
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  
-  <!-- Matrix overlay -->
-  <canvas id="matrix-canvas" class="matrix-canvas" aria-hidden="true"></canvas>
-
-
-  <!-- Navigation bar -->
   <nav>
-  <a class="logo" href="index.html">CG</a>
-  <div class="links">
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <button id="theme-toggle" class="btn ghost small">🌗</button>
-  </div>
-</nav>
+    <a class="logo" href="index.html"><span>CG</span> Cameron Gallagher</a>
+    <div class="links">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="theme-toggle" class="btn ghost">🌙</button>
+    </div>
+  </nav>
 
-  <!-- Main content area -->
   <main>
-    <section class="hero section">
-        <h1>Hi, I'm <span style="color:var(--accent)">Cameron Gallagher</span></h1>
-        <p class="muted">Aspiring Software Developer.</p>
-        <div style="margin-top:14px; display:flex; gap:10px; justify-content:center;">
-            <a class="btn" href="projects.html">See Projects</a>
-            <a class="btn ghost" href="contact.html">Contact</a>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">Open to opportunities</div>
+        <h1>
+          Hi, I'm
+          <span class="name">Cameron Gallagher</span>
+        </h1>
+        <p class="hero-sub">
+          Computer Science student at the University of Newcastle — building practical software
+          at the intersection of AI, clean design, and strong engineering.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="projects.html">View Projects</a>
+          <a class="btn ghost" href="contact.html">Get in Touch</a>
         </div>
+      </div>
+      <div class="hero-avatar">CG</div>
     </section>
+
+    <!-- Skills snapshot -->
+    <section class="section">
+      <p class="section-label">What I work with</p>
+      <h2>Skills &amp; Interests</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>Designing and modelling AI systems — from concept through to implementation.</p>
+          <div class="skill-tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Python</span>
+            <span class="tag">Research</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>Web Development</h3>
+          <p>Building clean, accessible web experiences with modern HTML, CSS, and JavaScript.</p>
+          <div class="skill-tags">
+            <span class="tag">HTML &amp; CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📱</div>
+          <h3>Mobile &amp; Software</h3>
+          <p>Creating mobile applications and software tools that solve real problems.</p>
+          <div class="skill-tags">
+            <span class="tag">App Development</span>
+            <span class="tag">Java</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🎮</div>
+          <h3>Game Development</h3>
+          <p>Experimenting with game engines and interactive experiences as a creative outlet.</p>
+          <div class="skill-tags">
+            <span class="tag">Game Design</span>
+            <span class="tag">C#</span>
+            <span class="tag">Unity</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Cameron Gallagher</p>
+    <span>© 2025 Cameron Gallagher</span>
+    <span>Built with HTML &amp; CSS · <a href="https://github.com/CGallagher-Tech" target="_blank">GitHub</a></span>
   </footer>
 
-<script>
-(() => {
-  const canvas = document.getElementById('matrix-canvas');
-  const ctx = canvas.getContext('2d');
-
-  // Fit canvas to window
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initColumns();
-  }
-  window.addEventListener('resize', resize);
-
-  // Characters to rain
-  const glyphs = 'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const chars = glyphs.split('');
-
-  // Columns setup
-  let fontSize = 16;     // tweak for density
-  let columns = [];
-  function initColumns() {
-    fontSize = Math.max(12, Math.floor(window.innerWidth / 90)); // auto-density
-    const cols = Math.ceil(canvas.width / fontSize);
-    columns = new Array(cols).fill(0).map(() => Math.floor(Math.random() * canvas.height / fontSize));
-  }
-
-  // Draw loop
-  function draw() {
-    // translucent fill to create trailing effect
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = getComputedStyle(document.body)
-    .getPropertyValue('--accent')
-    .trim();
-    ctx.font = `${fontSize}px monospace`;
-
-    columns.forEach((y, i) => {
-      const text = chars[Math.floor(Math.random() * chars.length)];
-      const x = i * fontSize;
-      ctx.fillText(text, x, y * fontSize);
-
-      // reset occasionally to vary lengths
-      if (y * fontSize > canvas.height && Math.random() > 0.975) {
-        columns[i] = 0;
-      } else {
-        columns[i] = y + 1;
-      }
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  resize();
-  draw();
-})();
-</script>
-<script src="theme-toggle.js"></script>
-
-<script>
-document.addEventListener("mousemove", e => {
-  const dot = document.createElement("div");
-  dot.className = "cursor-dot";
-  document.body.appendChild(dot);
-  dot.style.left = e.pageX + "px";
-  dot.style.top = e.pageY + "px";
-  setTimeout(() => dot.remove(), 1000); // remove after 1s
-});
-</script>
-
-
+  <script src="theme-toggle.js"></script>
 </body>
 </html>
